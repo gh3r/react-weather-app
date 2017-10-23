@@ -52,20 +52,22 @@ body {
 
 .navbar .get-weather .input {
   margin: 10px;
+  height: 21px;
 }
 
 .btn {
   display: inline-block;
   padding: 8px 16px;
-  border: 1px solid #5cb85c;
+  border: 1px solid #66BB6A;
   cursor: pointer;
   color: #fff;
-  background-color: #5cb85c;
+  background-color: #66BB6A;
   border-radius: 4px;
   font-size: 14px;
   text-align: center;
   white-space: nowrap;
   vertical-align: middle;
+  text-decoration: none;
 }
 
 .input {
@@ -82,4 +84,42 @@ body {
   font-size: 45px;
   color: #fff;
   font-weight: 100;
+}
+
+.forecast-header {
+  font-size: 65px;
+  text-align: center;
+  font-weight: 100;
+}
+
+.forecast {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 50px auto;
+}
+
+.daily-forecast {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 40px;
+}
+
+.weather-icon {
+  height: 135px;
+}
+
+.subheader {
+  font-weight: 100;
+  font-size: 30px;
+}
+
+.details-container {
+  font-weight: 100;
+  font-size: 32px;
+  text-align: center;
 }

@@ -1,16 +1,47 @@
-var React = require('react');
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-function GetWeather() {
-  return (
-    <div className='get-weather'>
-      <input
-        type='text'
-        placeholder='St. George, Utah'
-        className='input'
-      />
-      <button type='button' className='btn'>Get Weather</button>
-    </div>
-  )
-};
+class GetWeather extends React.Component {
+  constructor(props) {
+    super(props);
 
-module.exports = GetWeather;
+    this.state = {
+      city: ''
+    };
+  }
+
+  handleInputUpdate = (e) => {
+    const city = e.target.value;
+
+    this.setState({
+        city
+    });
+  }
+
+  render() {
+    const { city } = this.state;
+
+    return (
+      <div className='get-weather'>
+        <input
+          type='text'
+          placeholder='St. George, Utah'
+          className='input'
+          onChange={this.handleInputUpdate}
+          value={city}
+        />
+        <Link
+          className='btn'
+          to={{
+            pathname: `/forecast`,
+            search: `?city=${city}`
+          }}
+        >
+          Get Weather
+        </Link>
+      </div>
+    )
+  };
+}
+
+export default GetWeather;
