@@ -2,13 +2,27 @@ import React from 'react';
 import queryString from 'query-string';
 
 import api from '../utils/api';
+import helpers from '../utils/helpers';
+
+const DailyForecast = (props) => {
+  const { day } = props;
+  const date = helpers.convertTime(day.dt);
+  const icon = day.weather[0].icon;
+
+  return (
+    <div className='daily-forecast'>
+      <img className='weather-icon' src={`/assets/icons/${icon}.svg`} />
+      <h2 className='subheader'>{date}</h2>
+    </div>
+  );
+}
 
 class Forecast extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      city: '',
+      forecastData: {},
       loading: true
     }
   }
@@ -22,22 +36,29 @@ class Forecast extends React.Component {
           forecastData: res,
           loading: false
         })
+      });
+  }
 
-        console.log(res);
-      })
+  renderForecast = (forecast) => {
+    return (
+      <div>
+        <h1 className='forecast-header'>{forecast.city.name}</h1>
+        <div className='forecast'>
+          {forecast.list.map((day) => {
+            return <DailyForecast key={day.dt} day={day} />
+          })}
+        </div>
+      </div>
+    )
+
   }
 
   render() {
-    const { loading } = this.state;
+    const { loading, forecastData } = this.state;
 
-    return (
-      <div>
-        {loading === true
-          ? <p>Loading</p>
-          : <p>Forecast Component</p>
-        }
-      </div>
-    )
+    return loading === true
+          ? <h1 className='forecast-header'>Loading</h1>
+          : this.renderForecast(forecastData)
   }
 }
 

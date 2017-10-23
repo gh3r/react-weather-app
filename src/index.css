@@ -52,6 +52,7 @@ body {
 
 .navbar .get-weather .input {
   margin: 10px;
+  height: 21px;
 }
 
 .btn {
@@ -83,4 +84,36 @@ body {
   font-size: 45px;
   color: #fff;
   font-weight: 100;
+}
+
+.forecast-header {
+  font-size: 65px;
+  text-align: center;
+  font-weight: 100;
+}
+
+.forecast {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 50px auto;
+}
+
+.daily-forecast {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 40px;
+}
+
+.weather-icon {
+  height: 135px;
+}
+
+.subheader {
+  font-weight: 100;
+  font-size: 30px;
 }
