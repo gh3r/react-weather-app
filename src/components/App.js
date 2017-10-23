@@ -1,8 +1,9 @@
-var React = require('react');
-var Header = require('./Header');
-var Home = require('./Home');
+import React from 'react';
 
-function App() {
+import Header from './Header';
+import Home from './Home';
+
+const App = () => {
   return (
     <div className='container'>
       <Header />
@@ -11,4 +12,4 @@ function App() {
   )
 };
 
-module.exports = App;
+export default App;

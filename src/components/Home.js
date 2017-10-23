@@ -1,7 +1,8 @@
-var React = require('react');
-var GetWeather = require('./GetWeather');
+import React from 'react';
 
-function Home() {
+import GetWeather from './GetWeather';
+
+const Home = () => {
   return (
     <div className='home'>
       <h1 className='home-header'>Enter a City and State</h1>
@@ -10,4 +11,4 @@ function Home() {
   )
 };
 
-module.exports = Home;
+export default Home;

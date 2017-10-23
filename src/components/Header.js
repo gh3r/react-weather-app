@@ -1,7 +1,8 @@
-var React = require('react');
-var GetWeather = require('./GetWeather');
+import React from 'react';
 
-function Header() {
+import GetWeather from './GetWeather';
+
+const Header = () => {
   return (
     <div className='navbar'>
       <h1>
@@ -12,4 +13,4 @@ function Header() {
   )
 }
 
-module.exports = Header;
+export default Header;

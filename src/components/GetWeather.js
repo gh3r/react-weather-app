@@ -1,6 +1,6 @@
-var React = require('react');
+import React from 'react';
 
-function GetWeather() {
+const GetWeather = () => {
   return (
     <div className='get-weather'>
       <input
@@ -13,4 +13,4 @@ function GetWeather() {
   )
 };
 
-module.exports = GetWeather;
+export default GetWeather;
