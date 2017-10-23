@@ -10,7 +10,10 @@ const DailyForecast = (props) => {
   const icon = day.weather[0].icon;
 
   return (
-    <div className='daily-forecast'>
+    <div
+      className='daily-forecast'
+      onClick={props.onClick}
+    >
       <img className='weather-icon' src={`/assets/icons/${icon}.svg`} />
       <h2 className='subheader'>{date}</h2>
     </div>
@@ -39,13 +42,23 @@ class Forecast extends React.Component {
       });
   }
 
-  renderForecast = (forecast) => {
+  handleDetailClick = (day, city) => {
+    this.props.history.push({
+      pathname: '/details/' + city,
+      state: day
+    })
+  }
+
+  renderForecast = () => {
+    const { forecastData } = this.state;
+    const city = forecastData.city.name;
+
     return (
       <div>
-        <h1 className='forecast-header'>{forecast.city.name}</h1>
+        <h1 className='forecast-header'>{city}</h1>
         <div className='forecast'>
-          {forecast.list.map((day) => {
-            return <DailyForecast key={day.dt} day={day} />
+          {forecastData.list.map((day) => {
+            return <DailyForecast key={day.dt} day={day} onClick={() => this.handleDetailClick(day, city)} />
           })}
         </div>
       </div>
@@ -54,11 +67,11 @@ class Forecast extends React.Component {
   }
 
   render() {
-    const { loading, forecastData } = this.state;
+    const { loading } = this.state;
 
     return loading === true
           ? <h1 className='forecast-header'>Loading</h1>
-          : this.renderForecast(forecastData)
+          : this.renderForecast()
   }
 }
 
