@@ -12,14 +12,14 @@ const handleError = (error) => {
 
 const api = {
   fetchDailyWeather: (city) => {
-    return axios.get(`${baseURL}/weather?q=${city}&type=accurate&APPID=${apiKey}`)
+    return axios.get(`${baseURL}/weather?q=${city}&type=accurate&APPID=${apiKey}&units=metric`)
       .then(results => {
         return results.data;
       })
       .catch(handleError);
   },
   fetchForcastWeather: (city) => {
-    return axios.get(`${baseURL}/forecast/daily?q=${city}&type=accurate&APPID=${apiKey}&cnt=5`)
+    return axios.get(`${baseURL}/forecast/daily?q=${city}&type=accurate&APPID=${apiKey}&cnt=5&units=metric`)
       .then(results => {
         return results.data;
       })
