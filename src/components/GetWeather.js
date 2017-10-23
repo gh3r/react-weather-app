@@ -1,9 +1,8 @@
 import React from 'react';
-
-import api from '../utils/api';
+import { Link } from 'react-router-dom';
 
 class GetWeather extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
 
     this.state = {
@@ -11,22 +10,17 @@ class GetWeather extends React.Component {
     };
   }
 
-  handleWeatherSearch = () => {
-    api.fetchDailyWeather(this.state.city)
-      .then(res => {
-        console.log(res);
-      })
-  }
-
   handleInputUpdate = (e) => {
     const city = e.target.value;
 
     this.setState({
         city
-    })
+    });
   }
 
   render() {
+    const { city } = this.state;
+
     return (
       <div className='get-weather'>
         <input
@@ -34,15 +28,17 @@ class GetWeather extends React.Component {
           placeholder='St. George, Utah'
           className='input'
           onChange={this.handleInputUpdate}
-          value={this.state.city}
+          value={city}
         />
-        <button
-          type='button'
+        <Link
           className='btn'
-          onClick={this.handleWeatherSearch}
+          to={{
+            pathname: `/forecast`,
+            search: `?city=${city}`
+          }}
         >
           Get Weather
-        </button>
+        </Link>
       </div>
     )
   };
