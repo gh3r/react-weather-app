@@ -2,6 +2,7 @@ import React from 'react';
 import queryString from 'query-string';
 
 import DailyForecast from './DailyForecast'
+import Loading from './Loading';
 import api from '../utils/api';
 
 class Forecast extends React.Component {
@@ -54,7 +55,7 @@ class Forecast extends React.Component {
     const { loading } = this.state;
 
     return loading === true
-          ? <h1 className='forecast-header'>Loading</h1>
+          ? <Loading />
           : this.renderForecast()
   }
 }
