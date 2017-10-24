@@ -5,7 +5,7 @@ const DailyForecast = (props) => {
   const { day } = props;
   const date = helpers.convertTime(day.dt);
   const icon = day.weather[0].icon;
-  const iconPath = require(`../../assets/icons/${icon}.svg`);
+  const iconPath = require(`Assets/icons/${icon}.svg`);
 
   return (
     <div
