@@ -1,0 +1,27 @@
+machine:
+  node:
+    version: 6.11.1
+  environment:
+    PATH: "${PATH}:${HOME}/${CIRCLE_PROJECT_REPONAME}/node_modules/.bin"
+
+general:
+  branches:
+    only:
+      - master
+      - develop
+
+dependencies:
+  override:
+    - yarn
+  cache_directories:
+    - ~/.cache/yarn
+
+test:
+  override:
+    - yarn build
+
+deployment:
+  master:
+    branch: master
+    commands:
+      - yarn deploy:ci
