@@ -15,7 +15,7 @@ body {
   width: 100%;
 }
 
-.home, .loading-container {
+.home, .loading-container, .error-container {
   height: 100%;
   width: 100%;
   display: flex;
@@ -127,6 +127,32 @@ body {
   margin-bottom: 65px;
 }
 
+.error-name {
+  font-size: 75px;
+  font-weight: 100;
+  margin-bottom: 20px;
+}
+
+.error-description {
+  font-weight: 100;
+  font-size: 30px;
+}
+
+.error-details {
+  font-weight: 100;
+  font-size: 24px;
+  font-style: italic;
+}
+
+.error-button {
+  text-decoration: none;
+  border: 2px solid #66BB6A;
+  border-radius: 4px;
+  padding: 6px 12px;
+  text-transform: uppercase;
+  color: #000;
+}
+
 /* Loading */
 .spinner {
   width: 50px;
@@ -140,7 +166,7 @@ body {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background-color: #66BB6A;
+  background-color: #78909C;
   opacity: 0.6;
   position: absolute;
   top: 0;
