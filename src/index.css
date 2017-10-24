@@ -15,7 +15,7 @@ body {
   width: 100%;
 }
 
-.home {
+.home, .loading-container, .error-container {
   height: 100%;
   width: 100%;
   display: flex;
@@ -32,8 +32,13 @@ body {
   padding: 8px;
 }
 
-.navbar > h1 {
+.navbar-header {
+  display: block;
   font-weight: 100;
+  text-decoration: none;
+  color: #fff;
+  font-size: 34px;
+  margin: 20px 0;
 }
 
 .get-weather {
@@ -65,6 +70,12 @@ body {
   white-space: nowrap;
   vertical-align: middle;
   text-decoration: none;
+}
+
+.btn-disabled {
+  pointer-events: none;
+  user-select: none;
+  opacity: 0.7;
 }
 
 .input {
@@ -120,4 +131,73 @@ body {
   font-size: 32px;
   text-align: center;
   margin-bottom: 65px;
+}
+
+.error-name {
+  font-size: 75px;
+  font-weight: 100;
+  margin-bottom: 20px;
+}
+
+.error-description {
+  font-weight: 100;
+  font-size: 30px;
+}
+
+.error-details {
+  font-weight: 100;
+  font-size: 24px;
+  font-style: italic;
+}
+
+.error-button {
+  text-decoration: none;
+  border: 2px solid #66BB6A;
+  border-radius: 4px;
+  padding: 6px 12px;
+  text-transform: uppercase;
+  color: #000;
+}
+
+/* Loading */
+.spinner {
+  width: 50px;
+  height: 50px;
+
+  position: relative;
+  margin: 100px auto;
+}
+
+.double-bounce1, .double-bounce2 {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #78909C;
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+  animation: sk-bounce 2.0s infinite ease-in-out;
+}
+
+.double-bounce2 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+
+@-webkit-keyframes sk-bounce {
+  0%, 100% { -webkit-transform: scale(0.0) }
+  50% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bounce {
+  0%, 100% {
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  } 50% {
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+  }
 }

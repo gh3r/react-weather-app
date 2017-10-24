@@ -16,6 +16,11 @@ var config = {
       { test: /\.svg$/, use: 'file-loader' },
     ]
   },
+  resolve: {
+    alias: {
+      Assets: path.resolve(__dirname, 'assets')
+    },
+  },
   devServer: {
     historyApiFallback: true
   },

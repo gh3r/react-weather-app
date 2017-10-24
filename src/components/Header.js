@@ -1,13 +1,17 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import GetWeather from './GetWeather';
 
 const Header = () => {
   return (
     <div className='navbar'>
-      <h1>
+      <Link
+        className='navbar-header'
+        to='/'
+      >
         Weather App
-      </h1>
+      </Link>
       <GetWeather />
     </div>
   )

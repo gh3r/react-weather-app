@@ -2,7 +2,7 @@ import React from 'react';
 
 import GetWeather from './GetWeather';
 
-const bgImage = require(`../../assets/pattern.svg`);
+const bgImage = require(`Assets/pattern.svg`);
 const styles = {
   backgroundImage: `url('${bgImage}')`,
   backgroundRepeat: 'no-repeat',
