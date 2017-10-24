@@ -32,8 +32,13 @@ body {
   padding: 8px;
 }
 
-.navbar > h1 {
+.navbar-header {
+  display: block;
   font-weight: 100;
+  text-decoration: none;
+  color: #fff;
+  font-size: 34px;
+  margin: 20px 0;
 }
 
 .get-weather {
