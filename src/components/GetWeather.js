@@ -31,7 +31,10 @@ class GetWeather extends React.Component {
           value={city}
         />
         <Link
-          className='btn'
+          className={`
+            btn
+            ${city ? '' : 'btn-disabled'}
+          `}
           to={{
             pathname: `/forecast`,
             search: `?city=${city}`
