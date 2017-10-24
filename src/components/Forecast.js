@@ -3,6 +3,7 @@ import queryString from 'query-string';
 
 import DailyForecast from './DailyForecast'
 import Loading from './Loading';
+import Error from './Error';
 import api from '../utils/api';
 
 class Forecast extends React.Component {
@@ -36,7 +37,11 @@ class Forecast extends React.Component {
 
   renderForecast = () => {
     const { forecastData } = this.state;
-    const city = forecastData.city.name;
+    const city = forecastData ? forecastData.city.name : null;
+
+    if(!city) {
+      return <Error name='Unexpected error!' description='Sorry, something went wrong, please try again later.'/>
+    }
 
     return (
       <div>
