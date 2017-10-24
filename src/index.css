@@ -22,9 +22,6 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-image: url('/assets/pattern.svg');
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 .navbar {
