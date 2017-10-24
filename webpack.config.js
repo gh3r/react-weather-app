@@ -19,9 +19,16 @@ var config = {
   devServer: {
     historyApiFallback: true
   },
-  plugins: [ new HtmlWebpackPlugin({
-    template: 'src/index.html'
-  })]
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: 'src/index.html'
+    }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        'OPEN_WEATHER_API_KEY': JSON.stringify(process.env.OPEN_WEATHER_API_KEY)
+      }
+    })
+  ]
 };
 
 if (process.env.NODE_ENV === 'production') {

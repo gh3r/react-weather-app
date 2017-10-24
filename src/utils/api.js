@@ -1,8 +1,6 @@
 import axios from 'axios';
 
-import config from './config';
-
-const { apiKey } = config;
+const apiKey = process.env.OPEN_WEATHER_API_KEY;
 const baseURL = 'http://api.openweathermap.org/data/2.5';
 
 const handleError = (error) => {
